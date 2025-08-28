@@ -6,7 +6,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Adicionado para rolagem suave */
+    scroll-behavior: smooth; /* Rolagem suave */
 }
 
 body {
@@ -78,6 +78,7 @@ ul {
 
 .nav-links {
     display: flex;
+    z-index: 2000; /* Garante que fique acima de tudo */
 }
 
 .nav-links li {
@@ -92,6 +93,7 @@ ul {
     border-radius: 8px;
     position: relative;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-links a::before {
@@ -122,6 +124,7 @@ ul {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    z-index: 3000; /* Acima de tudo */
 }
 
 .hamburger span {
@@ -222,7 +225,7 @@ ul {
     gap: 20px;
 }
 
-/* Skill Cards com azul suave e barras de progresso */
+/* Skill Cards */
 .skill {
     background: rgba(12, 112, 117, 0.15);
     padding: 20px;
@@ -374,13 +377,15 @@ ul {
         position: fixed;
         left: -100%;
         top: 70px;
+        height: calc(100% - 70px); /* Preenche tela inteira */
         flex-direction: column;
         background-color: #fff;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s ease-in-out;
         box-shadow: 0 10px 27px 0 rgba(0,0,0,0.05);
         padding: 20px 0;
+        z-index: 2000;
     }
 
     .nav-links.active {
@@ -393,6 +398,7 @@ ul {
 
     .hamburger {
         display: flex;
+        z-index: 3000;
     }
 
     .hamburger.active span:nth-child(2) {

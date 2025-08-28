@@ -113,15 +113,12 @@
                         <div class="progress" style="width: 95%;"></div>
                     </div>
                 </div>
-                  <div class="skill">
+                <div class="skill">
                     <h3>Metodologias Ágeis</h3>
                     <div class="progress-bar">
-                    <div class="progress" style="width: 85%;"></div>
+                        <div class="progress" style="width: 85%;"></div>
                     </div>
                 </div>
-                <!-- Area disponivel para caso eu queira colocar outra skill -->
-                </div>
-
             </div>
         </section>
 
@@ -168,6 +165,34 @@
         <p>&copy; 2024 Lucas Pinheiro. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Script -->
+    <script>
+        // Menu Hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        function toggleMenu(e) {
+            e.preventDefault();
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Captura click e toque (iOS compatível)
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchstart', toggleMenu);
+
+        // Fecha menu ao clicar em algum link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Força carregar do topo ao abrir o site
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
 </body>
 </html>
