@@ -21,6 +21,9 @@
                 <li><a href="#projects">Projetos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -87,9 +90,9 @@
                     <a href="https://github.com/LucasC-Pinheiro/igniteshoes-app" class="btn">Ver Projeto</a>
                 </div>
                 <div class="project-card">
-                    <h3>Projeto-Teams</h3>
-                    <p>Uma plataforma de colaboração que permite a criação de equipes, gerenciamento de projetos e comunicação entre membros, facilitando o trabalho em grupo.</p>
-                    <a href="https://github.com/LucasC-Pinheiro/Projeto-Teams" class="btn">Ver Projeto</a>
+                    <h3>Motorly</h3>
+                    <p>O Motorly é um aplicativo que apresenta um catálogo de marcas automotivas. O projeto prioriza uma interface limpa e navegação eficiente para facilitar a descoberta rápida de veículos.</p>
+                    <a href="https://github.com/LucasC-Pinheiro/Motorly" class="btn">Ver Projeto</a>
                 </div>
             </div>
         </section>
@@ -144,5 +147,41 @@
             window.scrollTo(0, 0);
         });
     </script>
+    <script>
+        // Theme toggle: altera classe 'dark' no body e persiste preferência
+        const themeToggle = document.getElementById('theme-toggle');
+        const rootBody = document.body;
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+        function setTheme(isDark) {
+            if (isDark) {
+                rootBody.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                if (icon) icon.className = 'fas fa-sun';
+            } else {
+                rootBody.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                if (icon) icon.className = 'fas fa-moon';
+            }
+        }
+
+        // Inicializa com preferência salva ou preferência do sistema
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved) {
+                setTheme(saved === 'dark');
+            } else {
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setTheme(prefersDark);
+            }
+        })();
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                setTheme(!rootBody.classList.contains('dark'));
+            });
+        }
+    </script>
+    
 </body>
 </html>

@@ -96,6 +96,24 @@ ul {
     cursor: pointer;
 }
 
+/* Theme toggle button */
+.theme-toggle {
+    background: transparent;
+    border: 2px solid transparent;
+    color: #294D61;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 12px;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background: rgba(15,150,156,0.08);
+}
+
 .nav-links a::before {
     content: '';
     position: absolute;
@@ -145,6 +163,91 @@ ul {
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
                 url('./img/fundo-hero.jpg') no-repeat center center/cover;
     color: #fff;
+}
+
+/* Dark theme */
+body.dark {
+    background-color: #0b0f12;
+    color: #e6eef0;
+}
+
+body.dark .header {
+    background: #071217;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+body.dark .nav-links a {
+    color: #cfeff0;
+}
+
+body.dark .logo {
+    color: #9fe6e8;
+}
+
+body.dark .btn {
+    background: linear-gradient(45deg, #186f74, #2aa7ab);
+}
+
+body.dark .project-card {
+    background: #071217;
+    color: #dff6f7;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+body.dark .footer {
+    background: #020506;
+}
+
+/* Melhor contraste para seções principais em dark */
+body.dark .about,
+body.dark .skills,
+body.dark .projects,
+body.dark .contact {
+    background: transparent; /* mantém o padrão geral, evitar blocos muito escuros */
+    color: #dfeff0;
+}
+
+body.dark .about h2,
+body.dark .skills h2,
+body.dark .projects h2,
+body.dark .contact h2 {
+    color: #cfeff0;
+}
+
+body.dark .about-content p,
+body.dark .contact-info p {
+    color: #dfeff0;
+}
+
+/* Skills cards no tema escuro */
+body.dark .skill {
+    background: rgba(15,150,156,0.08);
+    color: #e6f6f6;
+}
+
+body.dark .skill h3 {
+    color: #9fe6e8;
+}
+
+/* Hero texto em tema escuro */
+body.dark .hero-text h1,
+body.dark .hero-text p {
+    color: #f3fcfd;
+}
+
+/* Links e ícones */
+body.dark a,
+body.dark .nav-links a {
+    color: #cfeff0;
+}
+
+body.dark .contact-info i {
+    color: #7fe6e9;
+}
+
+/* Ajuste suave de transição ao alternar tema */
+body, .header, .project-card, .skill {
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-content {
@@ -307,6 +410,7 @@ ul {
     color: #294D61;
 }
 
+
 .project-card .btn {
     margin-top: 10px;
     background: linear-gradient(135deg, #0C7075, #0F969C);
@@ -317,6 +421,9 @@ ul {
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     background: linear-gradient(135deg, #0F969C, #0C7075);
 }
+
+/* Estilo específico para o botão ghost dentro do card (garante visual de outline) */
+
 
 /* Contact Section */
 .contact {
