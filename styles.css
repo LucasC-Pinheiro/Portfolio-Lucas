@@ -353,6 +353,25 @@ body, .header, .project-card, .skill {
     font-size: 1.1rem;
 }
 
+.skill-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    .skill {
+        min-width: 140px;
+        max-width: 160px;
+        padding: 16px;
+    }
+    .skill-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
 .progress-bar {
     width: 100%;
     height: 10px;
