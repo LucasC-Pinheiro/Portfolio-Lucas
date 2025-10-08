@@ -288,6 +288,17 @@ body, .header, .project-card, .skill {
     transform: scale(1.02);
 }
 
+.Montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #ffffff; /* ajuste conforme seu tema */
+  letter-spacing: 1px;
+  margin-top: 3rem;
+}
+
 /* About Section */
 .about {
     padding: 80px 0;
@@ -345,6 +356,14 @@ body, .header, .project-card, .skill {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     background: linear-gradient(45deg, #7ef6fa, #9fffff);
     color: #fff;
+}
+
+.skill .skill-icon {
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+.skill:hover .skill-icon {
+    transform: scale(1.08);
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
 }
 
 .skill h3 {
