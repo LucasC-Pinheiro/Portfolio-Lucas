@@ -250,6 +250,30 @@ body, .header, .project-card, .skill {
     transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Reveal animations (entrance left->right, exit right->left with stagger) */
+.reveal {
+    /* start slightly visible (semi-transparent) and shifted left */
+    opacity: 0.4;
+    transform: translateX(-24px);
+    transition: transform 900ms cubic-bezier(.2,.9,.2,1), opacity 900ms cubic-bezier(.2,.9,.2,1);
+    will-change: transform, opacity;
+}
+.reveal.in-view {
+    /* fully visible when in view */
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal.out {
+    /* when leaving, go to the right but remain semi-transparent */
+    opacity: 0.4;
+    transform: translateX(24px);
+}
+
+/* Small utility to ensure children don't overflow during animation */
+.project-grid, .skills-container {
+    overflow: visible;
+}
+
 .hero-content {
     display: flex;
     align-items: center;
@@ -294,9 +318,14 @@ body, .header, .project-card, .skill {
   font-style: italic;
   font-size: 1.8rem;
   text-align: center;
-  color: #ffffff; /* ajuste conforme seu tema */
+    color: #294D61; /* cor escura para o modo claro */
   letter-spacing: 1px;
   margin-top: 3rem;
+}
+
+/* Ajuste de cor para o modo escuro */
+body.dark .Montserrat {
+    color: #ffffff;
 }
 
 /* About Section */
@@ -458,6 +487,179 @@ body, .header, .project-card, .skill {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     background: linear-gradient(135deg, #0F969C, #0C7075);
+}
+
+/* Phone frame to display full mobile screenshots inside project cards */
+.phone-frame {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f8f9fa, #ffffff);
+    padding: 8px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.28s, box-shadow 0.28s;
+}
+.phone-frame:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.14);
+}
+.phone-frame .project-thumb {
+    width: auto;
+    max-height: 420px; /* shows the full vertical screenshot scaled down */
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .phone-frame .project-thumb {
+        max-height: 260px;
+    }
+}
+
+/* Overlay title + tech badges on top of the image */
+.img-wrap { position: relative; width: 100%; }
+.card-overlay {
+    position: absolute;
+    inset: 0; /* cover the whole image area */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center both horizontally and vertically */
+    pointer-events: none;
+    background: rgba(0,0,0,0.35); /* dark film overlay in default state */
+    transition: opacity 350ms ease, background 350ms ease, transform 350ms ease;
+}
+.card-title {
+    font-size: 1.25rem; /* uniform size */
+    color: #ffffff;
+    text-shadow: 0 6px 26px rgba(0,0,0,0.75);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 800;
+    max-width: 90%;
+    text-align: center;
+    background: transparent; /* no background behind text; overlay provides contrast */
+}
+
+/* Hover: hide overlay, zoom/brighten image */
+.project-card:hover .card-overlay { opacity: 0; transform: translateY(0); }
+.project-card:hover .phone-frame .project-thumb {
+    transform: scale(1.05);
+    filter: brightness(1.08) saturate(1.03) contrast(1.04);
+}
+.phone-frame .project-thumb { transition: transform 480ms cubic-bezier(.2,.9,.2,1), filter 480ms ease; }
+
+/* Keep Ver Projeto button visible below image */
+.project-card .btn { margin-top: 12px; }
+
+/* Detail modal for project description */
+.detail-modal { display: none; position: fixed; inset: 0; z-index: 12000; align-items: center; justify-content: center; }
+.detail-modal.open { display: flex; }
+.detail-modal .detail-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.detail-modal .detail-content { position: relative; z-index: 12001; background: #fff; max-width: 820px; width: 92%; padding: 24px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.detail-modal .detail-close { position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 1.6rem; cursor: pointer; }
+.detail-modal .detail-title { font-size: 1.4rem; margin-bottom: 8px; color: #1f3a4b; }
+.detail-modal .detail-tech { display:flex; gap:8px; margin-bottom:12px; }
+.detail-modal .detail-desc { color: #294D61; line-height:1.5; }
+body.dark .detail-content { background: #071217; color: #dff6f7; }
+
+
+/* Gallery modal styles */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.gallery-modal.open {
+    display: flex;
+}
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+}
+.gallery-content {
+    position: relative;
+    max-width: 1000px;
+    width: 92%;
+    margin: 0 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gallery-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #fff;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.gallery-image {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #fff;
+}
+.gallery-controls {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+}
+.gallery-nav {
+    background: linear-gradient(135deg, #0C7075, #0F969C);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+.gallery-thumbs {
+    margin-top: 12px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+.gallery-thumbs img {
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.85;
+    border: 2px solid transparent;
+}
+.gallery-thumbs img.active {
+    opacity: 1;
+    border-color: #0F969C;
+}
+
+/* Dark theme for gallery */
+body.dark .gallery-overlay {
+    background: rgba(2,6,8,0.85);
+}
+body.dark .gallery-close {
+    background: #071217;
+    color: #dff6f7;
+}
+body.dark .gallery-image {
+    background: #071217;
 }
 
 /* Estilo específico para o botão ghost dentro do card (garante visual de outline) */
