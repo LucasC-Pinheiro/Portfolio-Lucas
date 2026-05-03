@@ -13,6 +13,11 @@ function AppContent() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     // Load theme preference from localStorage
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {

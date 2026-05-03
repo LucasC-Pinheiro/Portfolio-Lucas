@@ -45,7 +45,7 @@ export const Contact = ({ darkMode }: ContactProps) => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {t('contactTagline')}
         </motion.p>
@@ -156,7 +156,7 @@ export const Contact = ({ darkMode }: ContactProps) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
       >
         <p>&copy; 2025 Lucas Pinheiro. {t('footerText')}</p>
       </motion.footer>
