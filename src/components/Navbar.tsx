@@ -150,33 +150,51 @@ export const Navbar = ({ darkMode, setDarkMode, scrollY }: NavbarProps) => {
           {/* Language Toggle + Theme Toggle - Unified Control Group */}
           <div className="flex items-center gap-2">
             {/* Language Toggle */}
-            <div className={`relative flex items-center gap-1 px-3 py-1.5 rounded-full ${
-              darkMode ? 'bg-white/10' : 'bg-violet-100'
-            }`}>
-              {(['pt', 'en'] as Language[]).map((lang) => (
-                <motion.button
-                  key={lang}
-                  onClick={() => handleLanguageChange(lang)}
-                  className={`relative text-xs font-semibold px-2 py-1 transition-colors ${
-                    language === lang 
-                      ? darkMode ? 'text-white' : 'text-violet-600'
-                      : darkMode ? 'text-gray-400' : 'text-gray-400'
-                  }`}
-                >
-                  {lang.toUpperCase()}
-                  {language === lang && (
-                    <motion.span
-                      className={`absolute inset-0 rounded-full -z-10 ${
-                        darkMode ? 'bg-white/20' : 'bg-white'
-                      }`}
-                      layoutId="languageIndicator"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </motion.button>
-              ))}
-            </div>
-
+            {!darkMode ? (
+              <div className="flex items-center bg-violet-100 rounded-full p-0.5 gap-1">
+                {(['pt', 'en'] as Language[]).map((lang) => (
+                  <motion.button
+                    key={lang}
+                    onClick={() => handleLanguageChange(lang)}
+                    className="relative px-2.5 py-1 rounded-full text-sm font-medium transition-colors"
+                  >
+                    {language === lang && (
+                      <motion.div
+                        layoutId="languageIndicator"
+                        className="absolute inset-0 rounded-full bg-violet-200"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <span className={`relative z-10 ${language === lang ? 'text-violet-700 font-semibold' : 'text-gray-400'}`}>
+                      {lang.toUpperCase()}
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
+            ) : (
+              <div className={`relative flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/10`}>
+                {(['pt', 'en'] as Language[]).map((lang) => (
+                  <motion.button
+                    key={lang}
+                    onClick={() => handleLanguageChange(lang)}
+                    className={`relative text-xs px-2 py-1 transition-colors ${
+                      language === lang 
+                        ? 'text-white font-semibold'
+                        : 'text-gray-400'
+                    }`}
+                  >
+                    {lang.toUpperCase()}
+                    {language === lang && (
+                      <motion.span
+                        className="absolute inset-0 rounded-full -z-10 bg-white/20"
+                        layoutId="languageIndicator"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </motion.button>
+                ))}
+              </div>
+            )}
             {/* Divider */}
             <div className="w-px h-5 bg-white/10" />
 

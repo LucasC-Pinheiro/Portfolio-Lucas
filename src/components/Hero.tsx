@@ -100,7 +100,7 @@ export const Hero = ({ darkMode }: HeroProps) => {
               }}
             >
               <motion.img
-                src="./img/Retrato profissional de jovem com gravata.png"
+                src="/images/Retrato profissional de jovem com gravata.png"
                 alt={t('heroName')}
                 className="w-full h-full rounded-full object-cover shadow-2xl"
                 initial={{ opacity: 0, scale: 0.8 }}
