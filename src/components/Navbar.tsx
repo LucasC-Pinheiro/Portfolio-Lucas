@@ -149,52 +149,50 @@ export const Navbar = ({ darkMode, setDarkMode, scrollY }: NavbarProps) => {
 
           {/* Language Toggle + Theme Toggle - Unified Control Group */}
           <div className="flex items-center gap-2">
-            {/* Language Toggle */}
-            {!darkMode ? (
-              <div className="flex items-center bg-violet-100 rounded-full p-0.5 gap-1">
-                {(['pt', 'en'] as Language[]).map((lang) => (
-                  <motion.button
-                    key={lang}
-                    onClick={() => handleLanguageChange(lang)}
-                    className="relative px-2.5 py-1 rounded-full text-sm font-medium transition-colors"
-                  >
-                    {language === lang && (
-                      <motion.div
-                        layoutId="languageIndicator"
-                        className="absolute inset-0 rounded-full bg-violet-200"
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                    <span className={`relative z-10 ${language === lang ? 'text-violet-700 font-semibold' : 'text-gray-400'}`}>
-                      {lang.toUpperCase()}
-                    </span>
-                  </motion.button>
-                ))}
-              </div>
-            ) : (
-              <div className={`relative flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/10`}>
-                {(['pt', 'en'] as Language[]).map((lang) => (
-                  <motion.button
-                    key={lang}
-                    onClick={() => handleLanguageChange(lang)}
-                    className={`relative text-xs px-2 py-1 transition-colors ${
-                      language === lang 
-                        ? 'text-white font-semibold'
-                        : 'text-gray-400'
-                    }`}
-                  >
-                    {lang.toUpperCase()}
-                    {language === lang && (
-                      <motion.span
-                        className="absolute inset-0 rounded-full -z-10 bg-white/20"
-                        layoutId="languageIndicator"
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </motion.button>
-                ))}
-              </div>
-            )}
+            {/* Language Toggle - Sliding bubble (no layoutId) */}
+            <div
+              style={{
+                position: 'relative',
+                display: 'inline-flex',
+                borderRadius: '9999px',
+                padding: '3px',
+              }}
+              className="bg-violet-100 dark:bg-white/10"
+            >
+              {/* Sliding bubble — moves with translateX */}
+              <motion.div
+                animate={{ x: language === 'pt' ? 0 : '100%' }}
+                transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                style={{
+                  position: 'absolute',
+                  top: 3,
+                  left: 3,
+                  width: 'calc(50% - 3px)',
+                  height: 'calc(100% - 6px)',
+                  borderRadius: '9999px',
+                  zIndex: 0,
+                }}
+                className="bg-violet-200 dark:bg-white/20"
+              />
+
+              {/* PT button */}
+              <button
+                onClick={() => handleLanguageChange('pt')}
+                style={{ position: 'relative', zIndex: 1, minWidth: '36px' }}
+                className={`px-3 py-1 text-sm rounded-full ${language === 'pt' ? 'text-violet-700 dark:text-white font-semibold' : 'text-gray-400'}`}
+              >
+                PT
+              </button>
+
+              {/* EN button */}
+              <button
+                onClick={() => handleLanguageChange('en')}
+                style={{ position: 'relative', zIndex: 1, minWidth: '36px' }}
+                className={`px-3 py-1 text-sm rounded-full ${language === 'en' ? 'text-violet-700 dark:text-white font-semibold' : 'text-gray-400'}`}
+              >
+                EN
+              </button>
+            </div>
             {/* Divider */}
             <div className="w-px h-5 bg-white/10" />
 
