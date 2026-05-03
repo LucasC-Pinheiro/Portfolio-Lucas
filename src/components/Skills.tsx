@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useLanguage } from '../context/LanguageContext';
 import { portfolioData } from '../data/portfolio';
 
 interface SkillsProps {
   darkMode: boolean;
 }
 
-const skillCategories = ['Frontend', 'Mobile', 'Backend', 'Tools'] as const;
+const skillCategories = ['Frontend', 'Mobile', 'Backend', 'Data & State', 'Tools'] as const;
 
 export const Skills = ({ darkMode }: SkillsProps) => {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const { t } = useLanguage();
 
   // Group skills by category
   const groupedSkills = skillCategories.reduce((acc, category) => {
@@ -17,27 +17,16 @@ export const Skills = ({ darkMode }: SkillsProps) => {
     return acc;
   }, {} as Record<typeof skillCategories[number], typeof portfolioData.skills>);
 
-  const containerVariants = {
+  const sectionVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const categoryVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
       transition: { duration: 0.6 },
     },
   };
 
-  const skillVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+  const badgeVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
     visible: {
       opacity: 1,
       scale: 1,
@@ -45,144 +34,107 @@ export const Skills = ({ darkMode }: SkillsProps) => {
     },
   };
 
-  const getCategoryColor = (category: typeof skillCategories[number]) => {
-    const colors: Record<typeof skillCategories[number], { bg: string; border: string; text: string; darkBg: string; darkBorder: string; darkText: string }> = {
-      Frontend: {
-        bg: 'bg-blue-50 border-blue-200',
-        text: 'text-blue-700',
-        border: 'border-blue-300',
-        darkBg: 'dark:bg-blue-900/20 dark:border-blue-700',
-        darkBorder: 'dark:border-blue-600',
-        darkText: 'dark:text-blue-300',
+  const badgeContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
       },
-      Mobile: {
-        bg: 'bg-purple-50 border-purple-200',
-        text: 'text-purple-700',
-        border: 'border-purple-300',
-        darkBg: 'dark:bg-purple-900/20 dark:border-purple-700',
-        darkBorder: 'dark:border-purple-600',
-        darkText: 'dark:text-purple-300',
-      },
-      Backend: {
-        bg: 'bg-emerald-50 border-emerald-200',
-        text: 'text-emerald-700',
-        border: 'border-emerald-300',
-        darkBg: 'dark:bg-emerald-900/20 dark:border-emerald-700',
-        darkBorder: 'dark:border-emerald-600',
-        darkText: 'dark:text-emerald-300',
-      },
-      Tools: {
-        bg: 'bg-orange-50 border-orange-200',
-        text: 'text-orange-700',
-        border: 'border-orange-300',
-        darkBg: 'dark:bg-orange-900/20 dark:border-orange-700',
-        darkBorder: 'dark:border-orange-600',
-        darkText: 'dark:text-orange-300',
-      },
-    };
-    return colors[category];
+    },
   };
 
   return (
-    <section
+    <motion.section
       id="skills"
-      ref={ref}
       className={`py-24 px-4 transition-colors ${
         darkMode ? 'bg-dark' : 'bg-[#f8f7ff]'
       }`}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+      variants={sectionVariants}
     >
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className={`text-4xl md:text-5xl font-bold text-center mb-20 ${
-            darkMode ? 'text-white' : 'text-gray-900'
-          }`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.6 }}
-        >
-          Skills & Tecnologias
-        </motion.h2>
+        {/* Section Title with Gradient Underline */}
+        <div className="text-center mb-20">
+          <motion.h2
+            className={`text-4xl md:text-5xl font-bold mb-4 ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6 }}
+          >
+            {t('navSkills')}
+          </motion.h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 rounded-full mx-auto"></div>
+        </div>
 
-        <motion.div
-          className="space-y-12"
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-        >
+        {/* Skills Categories */}
+        <div className="space-y-10">
           {skillCategories.map((category) => (
-            <motion.div key={category} variants={categoryVariants}>
-              {/* Category Header */}
+            <motion.div
+              key={category}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { duration: 0.5 },
+                },
+              }}
+            >
+              {/* Category Title */}
               <motion.div
-                className={`mb-6 pb-4 border-b-2 ${
-                  darkMode
-                    ? 'border-gray-700'
-                    : 'border-violet-100'
+                className={`mb-6 pb-3 border-b ${
+                  darkMode ? 'border-white/10' : 'border-violet-100'
                 }`}
                 initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5 }}
               >
                 <h3
-                  className={`text-xl md:text-2xl font-bold ${
-                    darkMode
-                      ? getCategoryColor(category).darkText
-                      : 'text-violet-600'
+                  className={`text-xs uppercase tracking-widest font-semibold ${
+                    darkMode ? 'text-gray-400' : 'text-violet-600'
                   }`}
                 >
                   {category}
                 </h3>
               </motion.div>
 
-              {/* Skills Grid for Category */}
+              {/* Skills Badges */}
               <motion.div
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.06,
-                    },
-                  },
-                }}
+                className="flex flex-wrap gap-3"
+                variants={badgeContainerVariants}
                 initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
+                whileInView="visible"
+                viewport={{ once: false }}
               >
                 {groupedSkills[category].map((skill) => (
                   <motion.div
                     key={skill.name}
-                    className={`p-4 md:p-6 rounded-lg border-2 transition-all ${
+                    className={`px-4 py-1.5 rounded-full border text-sm font-medium transition-all ${
                       darkMode
-                        ? `${getCategoryColor(category).darkBg} ${getCategoryColor(category).darkBorder} hover:shadow-lg hover:shadow-violet-500/30`
-                        : 'bg-white border-violet-100 shadow-sm hover:border-violet-300 hover:shadow-md hover:shadow-violet-100'
+                        ? 'bg-white/5 border-white/10 text-gray-300 hover:border-violet-400 hover:text-violet-400'
+                        : 'bg-violet-50 border-violet-200 text-violet-700 hover:border-violet-400 hover:text-violet-500'
                     }`}
-                    variants={skillVariants}
-                    whileHover={{ y: -6, scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
+                    variants={badgeVariants}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                   >
-                    <motion.img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                    />
-                    <h4
-                      className={`text-sm md:text-base font-semibold text-center ${
-                        darkMode
-                          ? getCategoryColor(category).darkText
-                          : 'text-gray-700'
-                      }`}
-                    >
-                      {skill.name}
-                    </h4>
+                    {skill.name}
                   </motion.div>
                 ))}
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

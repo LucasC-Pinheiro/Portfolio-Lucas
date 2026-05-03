@@ -14,6 +14,24 @@ export const i18n = {
     heroFullGreeting: 'Olá, eu sou Lucas Pinheiro',
     heroTitle: 'Desenvolvedor Front-End',
     heroButton: 'Ver Meus Projetos',
+    heroDownloadCV: 'Baixar Currículo',
+
+    // Metrics
+    metricsYearsStudy: 'Anos estudando',
+    metricsProfessionalExp: 'Experiência Profissional',
+    metricsProjectsDelivered: 'Projetos Entregues',
+    metricsConversionIncrease: 'Aumento de Conversão',
+
+    // Experience
+    experienceTitle: 'Experiência',
+    experienceMobileRole: 'Desenvolvedor Mobile React Native',
+    experienceMobileCompany: 'Pixel Logic Apps · Tempo integral · Remoto',
+    experienceMobilePeriod: 'Dez 2025 – Abr 2026 · 5 meses',
+    experienceMobileDescription: 'Desenvolveu aplicativos móveis multiplataforma para Android e iOS com React Native e Expo, liderando todo o ciclo de vida do produto. Implementou interfaces a partir do Figma com fidelidade visual e foco em UI/UX. Atuação em componentização, refatoração, responsividade, correção de bugs e melhoria de performance em ambiente 100% remoto.',
+    experienceFreelanceRole: 'Desenvolvedor Web Freelancer',
+    experienceFreelanceCompany: 'Autônomo · Remoto',
+    experienceFreelancePeriod: '2024 – 2025',
+    experienceFreelanceDescription: 'Desenvolveu sites responsivos para pequenos negócios com aumento de até 45% na conversão. Criou landing pages de alta conversão com até 35% de melhoria na captação de leads. Entre os projetos entregues, desenvolveu site completo para um laboratório de prótese dentária — com seções de serviços, depoimentos e integração WhatsApp.',
 
     // About
     aboutTitle: 'Sobre Mim',
@@ -59,6 +77,24 @@ export const i18n = {
     heroFullGreeting: 'Hi, I\'m Lucas Pinheiro',
     heroTitle: 'Front-End Developer',
     heroButton: 'View My Projects',
+    heroDownloadCV: 'Download CV',
+
+    // Metrics
+    metricsYearsStudy: 'Years of Study',
+    metricsProfessionalExp: 'Professional Exp.',
+    metricsProjectsDelivered: 'Projects Delivered',
+    metricsConversionIncrease: 'Conversion Increase',
+
+    // Experience
+    experienceTitle: 'Experience',
+    experienceMobileRole: 'Mobile Developer — React Native',
+    experienceMobileCompany: 'Pixel Logic Apps · Full-time · Remote',
+    experienceMobilePeriod: 'Dec 2025 – Apr 2026 · 5 months',
+    experienceMobileDescription: 'Engineered cross-platform mobile applications for Android and iOS using React Native and Expo, owning the full product lifecycle from concept to app store publication. Translated Figma designs into pixel-perfect interfaces with strong UI/UX standards. Focused on componentization, refactoring, responsiveness, bug fixing, and performance improvements in a fully remote collaborative environment.',
+    experienceFreelanceRole: 'Freelance Web Developer',
+    experienceFreelanceCompany: 'Self-employed · Remote',
+    experienceFreelancePeriod: '2024 – 2025',
+    experienceFreelanceDescription: 'Developed responsive websites for small businesses, contributing to conversion rate increases of up to 45%. Delivered high-converting landing pages for lead generation with up to 35% growth in qualified leads. Among delivered projects, built a complete website for a dental prosthetics lab — featuring service sections, client testimonials, and WhatsApp integration.',
 
     // About
     aboutTitle: 'About Me',

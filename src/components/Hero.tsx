@@ -75,15 +75,32 @@ export const Hero = ({ darkMode }: HeroProps) => {
                 pauseAfterDelete={800}
               />
             </motion.h1>
-            <motion.a
-              href="#projects"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 text-white font-semibold rounded-lg hover:shadow-2xl transition-all hover:from-violet-600 hover:via-purple-600 hover:to-fuchsia-600"
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 items-center sm:items-start md:items-center"
               variants={itemVariants}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
             >
-              {t('heroButton')}
-            </motion.a>
+              <motion.a
+                href="#projects"
+                className="inline-block px-8 py-3 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 text-white font-semibold rounded-lg hover:shadow-2xl transition-all hover:from-violet-600 hover:via-purple-600 hover:to-fuchsia-600"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {t('heroButton')}
+              </motion.a>
+              <motion.a
+                href={language === 'pt' ? '/cv-pt.pdf' : '/cv-en.pdf'}
+                download
+                className={`inline-block px-8 py-3 border-2 border-violet-500 text-violet-500 font-semibold rounded-lg transition-all ${
+                  darkMode
+                    ? 'hover:bg-violet-500 hover:text-white'
+                    : 'hover:bg-violet-500 hover:text-white'
+                }`}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {t('heroDownloadCV')}
+              </motion.a>
+            </motion.div>
           </motion.div>
 
           {/* Image */}

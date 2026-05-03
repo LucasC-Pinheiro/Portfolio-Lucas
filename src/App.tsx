@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
+import { Experience } from './components/Experience';
 import { Hero } from './components/Hero';
+import { Metrics } from './components/Metrics';
 import { Navbar } from './components/Navbar';
 import { Projects } from './components/Projects';
 import { Skills } from './components/Skills';
@@ -54,7 +56,11 @@ function AppContent() {
     <div className={darkMode ? 'dark' : ''}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} scrollY={scrollY} />
       <Hero darkMode={darkMode} />
+      <div className="py-12 px-4 bg-gradient-to-b from-[#f8f7ff] to-[#f3f2ff] dark:from-dark dark:to-darkLight">
+        <Metrics darkMode={darkMode} />
+      </div>
       <About darkMode={darkMode} />
+      <Experience darkMode={darkMode} />
       <Skills darkMode={darkMode} />
       <Projects darkMode={darkMode} />
       <Contact darkMode={darkMode} />

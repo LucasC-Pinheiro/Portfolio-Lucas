@@ -1,7 +1,7 @@
 export interface Skill {
   name: string;
   icon: string;
-  category: 'Frontend' | 'Mobile' | 'Backend' | 'Tools';
+  category: 'Frontend' | 'Mobile' | 'Backend' | 'Data & State' | 'Tools';
 }
 
 export interface Project {
