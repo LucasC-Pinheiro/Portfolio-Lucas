@@ -1,0 +1,107 @@
+import { PortfolioData } from '../types';
+
+export const portfolioData: PortfolioData = {
+  name: 'Lucas Pinheiro',
+  title: 'Desenvolvedor Front-End',
+  bio: 'Olá, seja bem-vindo(a) ao meu portfólio! É um prazer ter você por aqui.\n\nMe chamo Lucas Pinheiro, sou um desenvolvedor apaixonado por criar soluções inovadoras e eficientes, com experiência sólida em tecnologias modernas. Tenho um forte domínio em React Native, TypeScript, React, NodeJS e busco sempre aprimorar minhas habilidades para entregar produtos de alta qualidade e impactar positivamente os projetos nos quais estou envolvido.\n\nCom uma mentalidade voltada para o aprendizado contínuo, criando aplicativos robustos, escaláveis e de fácil manutenção. Além disso, tenho experiência no desenvolvimento de soluções móveis com React Native e sou familiarizado com práticas de integração contínua e metodologias ágeis.\n\nProcuro oportunidades que me permitam aplicar meus conhecimentos no desenvolvimento mobile, crescer profissionalmente e contribuir para equipes que valorizem inovação, colaboração e excelência.',
+  email: 'pinheiro.dev29@gmail.com',
+  phone: '+55 (85) 98118-9814',
+  tagline: 'Transformando ideias em soluções digitais',
+  socialLinks: [
+    {
+      platform: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/lucaschavesp',
+      icon: 'fab fa-linkedin',
+    },
+    {
+      platform: 'GitHub',
+      url: 'https://github.com/LucasC-Pinheiro',
+      icon: 'fab fa-github',
+    },
+    {
+      platform: 'Instagram',
+      url: 'https://www.instagram.com/lukaspinheiiro/',
+      icon: 'fab fa-instagram',
+    },
+  ],
+  skills: [
+    { name: 'JavaScript', icon: 'https://www.svgrepo.com/show/353925/javascript.svg', category: 'Frontend' },
+    { name: 'TypeScript', icon: 'https://www.svgrepo.com/show/303600/typescript-logo.svg', category: 'Frontend' },
+    { name: 'React', icon: 'https://www.svgrepo.com/show/354259/react.svg', category: 'Frontend' },
+    { name: 'React Native', icon: 'https://cdn.worldvectorlogo.com/logos/react-native-1.svg', category: 'Mobile' },
+    { name: 'Node.js', icon: 'https://www.svgrepo.com/show/303360/nodejs-logo.svg', category: 'Backend' },
+    { name: 'NestJS', icon: 'https://www.svgrepo.com/show/373872/nestjs.svg', category: 'Backend' },
+    { name: 'Git & GitHub', icon: 'https://www.svgrepo.com/show/452210/git.svg', category: 'Tools' },
+    { name: 'MySQL', icon: 'https://www.svgrepo.com/show/303251/mysql-logo.svg', category: 'Backend' },
+    { name: 'PHP', icon: 'https://cdn-icons-png.flaticon.com/512/5968/5968332.png', category: 'Backend' },
+  ],
+  projects: [
+    {
+      id: 'todolist',
+      title: 'Todo-List',
+      description: 'Um aplicativo de gerenciamento de tarefas que permite aos usuários adicionar, editar e remover tarefas, ajudando a organizar o dia a dia de forma eficiente.',
+      thumbnail: 'assets/todoList/screenshot-02.png',
+      gallery: [
+        'assets/todoList/screenshot-01.png',
+        'assets/todoList/screenshot-02.png',
+        'assets/todoList/screenshot-03.png',
+        'assets/todoList/screenshot-04.png',
+      ],
+      technologies: ['React Native', 'TypeScript'],
+      githubUrl: 'https://github.com/LucasC-Pinheiro/Todo-List',
+    },
+    {
+      id: 'igniteshoes',
+      title: 'Igniteshoes-app',
+      description: 'Uma aplicação de e-commerce focada na venda de calçados, com funcionalidades como busca de produtos, carrinho de compras e checkout.',
+      thumbnail: 'assets/igniteshoes/screenshot-01.png',
+      gallery: [
+        'assets/igniteshoes/screenshot-01.png',
+        'assets/igniteshoes/screenshot-02.png',
+        'assets/igniteshoes/screenshot-03.png',
+      ],
+      technologies: ['React Native', 'TypeScript', 'Firebase'],
+      githubUrl: 'https://github.com/LucasC-Pinheiro/igniteshoes-app',
+    },
+    {
+      id: 'motorly',
+      title: 'Motorly',
+      description: 'O Motorly é um aplicativo que apresenta um catálogo de marcas automotivas. O projeto prioriza uma interface limpa e navegação eficiente para facilitar a descoberta rápida de veículos.',
+      thumbnail: 'assets/motorly/screenshot-01.png',
+      gallery: [
+        'assets/motorly/screenshot-01.png',
+        'assets/motorly/screenshot-02.png',
+        'assets/motorly/screenshot-03.png',
+      ],
+      technologies: ['React Native', 'TypeScript'],
+      githubUrl: 'https://github.com/LucasC-Pinheiro/Motorly',
+    },
+    {
+      id: 'flowpay',
+      title: 'FlowPay',
+      description: 'FlowPay é uma solução de gestão de pagamentos que facilita a organização de transações seguras e rápidas para aplicações móveis. O projeto inclui integração com provedores de pagamento, fluxo de checkout otimizado e foco em experiência do usuário e segurança.',
+      thumbnail: 'assets/flowPay/screenshot-01.png',
+      gallery: [
+        'assets/flowPay/screenshot-01.png',
+        'assets/flowPay/screenshot-02.png',
+        'assets/flowPay/screenshot-03.png',
+        'assets/flowPay/screenshot-04.png',
+      ],
+      technologies: ['React Native', 'TypeScript', 'Payment APIs'],
+      githubUrl: 'https://github.com/LucasC-Pinheiro/FlowPay',
+    },
+    {
+      id: 'remind',
+      title: 'Remind',
+      description: 'Aplicativo de lembretes de remédios: cadastro de medicamentos, horários, recorrências e toasts animados. Construído com React Native + TypeScript, com animações Reanimated + Lottie e persistência via Zustand + AsyncStorage.',
+      thumbnail: 'assets/remindImg/screenshot-01.png',
+      gallery: [
+        'assets/remindImg/screenshot-01.png',
+        'assets/remindImg/screenshot-02.png',
+        'assets/remindImg/screenshot-03.png',
+      ],
+      technologies: ['React Native', 'TypeScript', 'Zustand', 'Reanimated', 'Lottie'],
+      githubUrl: 'https://github.com/LucasC-Pinheiro/Remind',
+    },
+  ],
+};
