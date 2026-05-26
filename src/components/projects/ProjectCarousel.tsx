@@ -295,12 +295,12 @@ export const ProjectCarousel = ({ projects, darkMode }: ProjectCarouselProps) =>
             </div>
 
             {/* RIGHT — visual */}
-            <div className="lg:col-span-7 flex flex-col">
+            <div className="lg:col-span-7 flex flex-col justify-center">
               {isLandscape ? (
-                /* Landscape (FitLog): show raw scene plate */
+                /* Landscape (composite product shot): show raw scene plate */
                 <div
                   className="relative w-full overflow-hidden rounded-2xl"
-                  style={{ aspectRatio: '806 / 764' }}
+                  style={{ aspectRatio: activeImage.aspectRatio || '16 / 10' }}
                 >
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -314,7 +314,7 @@ export const ProjectCarousel = ({ projects, darkMode }: ProjectCarouselProps) =>
                       loading="lazy"
                       decoding="async"
                       draggable={false}
-                      className="absolute inset-0 w-full h-full object-cover select-none"
+                      className="absolute inset-0 w-full h-full object-contain select-none"
                     />
                   </AnimatePresence>
                   <div
@@ -326,7 +326,7 @@ export const ProjectCarousel = ({ projects, darkMode }: ProjectCarouselProps) =>
                 </div>
               ) : (
                 /* Portrait: phone frame */
-                <div className="flex justify-center items-center flex-1 py-2 md:py-4">
+                <div className="flex justify-center items-center py-2 md:py-4">
                   <PhoneFrame
                     darkMode={darkMode}
                     accentColor={accent}

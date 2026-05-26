@@ -66,18 +66,6 @@ export const i18n = {
     // Projects — FitLog
     projectFitlogTagline: 'Transforme cada série em progresso real',
     projectFitlogDescription: 'FitLog é um aplicativo iOS nativo de registro e acompanhamento de treinos, construído inteiramente com SwiftUI. Do onboarding personalizado ao gráfico de recordes pessoais, cada tela foi pensada para tornar a evolução visível — com persistência via SwiftData, gráficos nativos com Charts e arquitetura MVVM.',
-    projectFitlogBeat1: 'Um onboarding que respeita o usuário',
-    projectFitlogBeat1Body: 'Boas-vindas em SwiftUI com transições suaves e formulário leve.',
-    projectFitlogBeat2: 'Sua meta semanal, sua jornada',
-    projectFitlogBeat2Body: 'Slider interativo de 1 a 7 dias com feedback motivacional dinâmico.',
-    projectFitlogBeat3: 'A semana inteira em um relance',
-    projectFitlogBeat3Body: 'Dashboard com sequência semanal, último treino e métricas-chave.',
-    projectFitlogBeat4: 'Cada sessão, organizada por mês',
-    projectFitlogBeat4Body: 'Histórico filtrável com volume total e tempo acumulado.',
-    projectFitlogBeat5: 'Evolução visível em Swift Charts',
-    projectFitlogBeat5Body: 'Recordes pessoais, carga média e gráfico de peso por sessão.',
-    projectFitlogBeat6: 'Uma biblioteca que cresce com você',
-    projectFitlogBeat6Body: 'Exercícios customizáveis, agrupados por músculo e equipamento.',
 
     // Projects — Per-project descriptions (existing) + new taglines
     projectTodoTagline: 'Tarefas simples, dia mais leve',
@@ -164,18 +152,6 @@ export const i18n = {
     // Projects — FitLog
     projectFitlogTagline: 'Turn every set into real progress',
     projectFitlogDescription: 'FitLog is a native iOS workout tracking app built entirely with SwiftUI. From the personalized onboarding to the personal-record chart, every screen is designed to make progress visible — with SwiftData persistence, native Swift Charts visualizations, and an MVVM architecture.',
-    projectFitlogBeat1: 'An onboarding that respects the user',
-    projectFitlogBeat1Body: 'Welcome flow built in SwiftUI with smooth transitions and a light form.',
-    projectFitlogBeat2: 'Your weekly goal, your journey',
-    projectFitlogBeat2Body: 'Interactive 1-to-7-day slider with dynamic motivational feedback.',
-    projectFitlogBeat3: 'The whole week at a glance',
-    projectFitlogBeat3Body: 'Dashboard with weekly streak, last workout and key metrics.',
-    projectFitlogBeat4: 'Every session, neatly organized',
-    projectFitlogBeat4Body: 'Filterable history with total volume and accumulated time.',
-    projectFitlogBeat5: 'Progress, drawn in Swift Charts',
-    projectFitlogBeat5Body: 'Personal records, average load and per-session weight chart.',
-    projectFitlogBeat6: 'A library that grows with you',
-    projectFitlogBeat6Body: 'Custom exercises grouped by muscle, equipment and type.',
 
     // Projects — Per-project taglines + descriptions
     projectTodoTagline: 'Simple tasks, lighter days',

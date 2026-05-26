@@ -13,6 +13,7 @@ export type ImageOrientation = 'portrait' | 'landscape' | 'square';
 export interface ProjectImage {
   src: string;
   orientation: ImageOrientation;
+  aspectRatio?: string;
   captionKey?: TranslationKey;
 }
 

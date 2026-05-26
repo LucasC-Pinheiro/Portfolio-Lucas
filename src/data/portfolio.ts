@@ -11,13 +11,9 @@ export const projects: Project[] = [
     taglineKey: 'projectFitlogTagline',
     descriptionKey: 'projectFitlogDescription',
     gallery: [
-      { src: '/images/projects/fitlog/screen-01.png', orientation: 'landscape', captionKey: 'projectFitlogBeat1' },
-      { src: '/images/projects/fitlog/screen-02.png', orientation: 'landscape', captionKey: 'projectFitlogBeat2' },
-      { src: '/images/projects/fitlog/screen-03.png', orientation: 'landscape', captionKey: 'projectFitlogBeat3' },
-      { src: '/images/projects/fitlog/screen-04.png', orientation: 'landscape', captionKey: 'projectFitlogBeat4' },
-      { src: '/images/projects/fitlog/screen-05.png', orientation: 'landscape', captionKey: 'projectFitlogBeat5' },
-      { src: '/images/projects/fitlog/screen-06.png', orientation: 'landscape', captionKey: 'projectFitlogBeat6' },
+      { src: '/images/projects/fitlog/screens.png', orientation: 'landscape', aspectRatio: '1586 / 992' },
     ],
+    githubUrl: 'https://github.com/LucasC-Pinheiro/FitLog',
     accentColor: '#8B5CF6',
   },
   {
