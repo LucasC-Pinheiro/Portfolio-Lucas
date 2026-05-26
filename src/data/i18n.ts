@@ -47,13 +47,48 @@ export const i18n = {
     skillsBackend: 'Backend',
     skillsTools: 'Ferramentas',
 
-    // Projects
-    projectsTitle: 'Meus Projetos',
+    // Projects — section
+    projectsTitle: 'Trabalhos Selecionados',
+    projectsEyebrow: 'Projetos',
+    projectsLead: 'Um app iOS nativo em destaque e cinco produtos mobile construídos com React Native — cada um com foco em UI, performance e produto.',
+    projectsFeaturedLabel: 'Em destaque',
+    projectsOtherTitle: 'Mais Trabalhos',
     projectsViewGithub: 'Ver no GitHub',
+    projectsViewSource: 'Código fonte',
+    projectsViewCase: 'Ler estudo de caso',
+    projectsViewAll: 'Ver todas as telas',
+
+    // Projects — categories
+    projectCategoryIosNative: 'iOS Nativo',
+    projectCategoryReactNative: 'React Native',
+    projectCategoryWeb: 'Web',
+
+    // Projects — FitLog
+    projectFitlogTagline: 'Transforme cada série em progresso real',
+    projectFitlogDescription: 'FitLog é um aplicativo iOS nativo de registro e acompanhamento de treinos, construído inteiramente com SwiftUI. Do onboarding personalizado ao gráfico de recordes pessoais, cada tela foi pensada para tornar a evolução visível — com persistência via SwiftData, gráficos nativos com Charts e arquitetura MVVM.',
+    projectFitlogBeat1: 'Um onboarding que respeita o usuário',
+    projectFitlogBeat1Body: 'Boas-vindas em SwiftUI com transições suaves e formulário leve.',
+    projectFitlogBeat2: 'Sua meta semanal, sua jornada',
+    projectFitlogBeat2Body: 'Slider interativo de 1 a 7 dias com feedback motivacional dinâmico.',
+    projectFitlogBeat3: 'A semana inteira em um relance',
+    projectFitlogBeat3Body: 'Dashboard com sequência semanal, último treino e métricas-chave.',
+    projectFitlogBeat4: 'Cada sessão, organizada por mês',
+    projectFitlogBeat4Body: 'Histórico filtrável com volume total e tempo acumulado.',
+    projectFitlogBeat5: 'Evolução visível em Swift Charts',
+    projectFitlogBeat5Body: 'Recordes pessoais, carga média e gráfico de peso por sessão.',
+    projectFitlogBeat6: 'Uma biblioteca que cresce com você',
+    projectFitlogBeat6Body: 'Exercícios customizáveis, agrupados por músculo e equipamento.',
+
+    // Projects — Per-project descriptions (existing) + new taglines
+    projectTodoTagline: 'Tarefas simples, dia mais leve',
     projectTodoDescription: 'Um aplicativo de gerenciamento de tarefas que permite aos usuários adicionar, editar e remover tarefas, ajudando a organizar o dia a dia de forma eficiente.',
+    projectIgniteshoesTagline: 'E-commerce mobile com push em tempo real',
     projectIgniteshoesDescription: 'Uma aplicação de e-commerce focada na venda de calçados, com funcionalidades como busca de produtos, carrinho de compras e checkout.',
+    projectMotorlyTagline: 'Catálogo automotivo com interface refinada',
     projectMotorlyDescription: 'O Motorly é um aplicativo que apresenta um catálogo de marcas automotivas. O projeto prioriza uma interface limpa e navegação eficiente para facilitar a descoberta rápida de veículos.',
+    projectFlowpayTagline: 'Pagamentos rápidos, seguros e elegantes',
     projectFlowpayDescription: 'FlowPay é uma solução de gestão de pagamentos que facilita a organização de transações seguras e rápidas para aplicações móveis. O projeto inclui integração com provedores de pagamento, fluxo de checkout otimizado e foco em experiência do usuário e segurança.',
+    projectRemindTagline: 'Nunca mais esqueça um remédio',
     projectRemindDescription: 'Aplicativo de lembretes de remédios: cadastro de medicamentos, horários, recorrências e toasts animados. Construído com React Native + TypeScript, com animações Reanimated + Lottie e persistência via Zustand + AsyncStorage.',
 
     // Contact
@@ -110,13 +145,48 @@ export const i18n = {
     skillsBackend: 'Backend',
     skillsTools: 'Tools',
 
-    // Projects
-    projectsTitle: 'My Projects',
+    // Projects — section
+    projectsTitle: 'Selected Work',
+    projectsEyebrow: 'Projects',
+    projectsLead: 'One native iOS app in focus and five mobile products built with React Native — each one crafted around UI, performance and product thinking.',
+    projectsFeaturedLabel: 'Featured',
+    projectsOtherTitle: 'More Work',
     projectsViewGithub: 'View on GitHub',
+    projectsViewSource: 'Source code',
+    projectsViewCase: 'Read case study',
+    projectsViewAll: 'View all screens',
+
+    // Projects — categories
+    projectCategoryIosNative: 'iOS Native',
+    projectCategoryReactNative: 'React Native',
+    projectCategoryWeb: 'Web',
+
+    // Projects — FitLog
+    projectFitlogTagline: 'Turn every set into real progress',
+    projectFitlogDescription: 'FitLog is a native iOS workout tracking app built entirely with SwiftUI. From the personalized onboarding to the personal-record chart, every screen is designed to make progress visible — with SwiftData persistence, native Swift Charts visualizations, and an MVVM architecture.',
+    projectFitlogBeat1: 'An onboarding that respects the user',
+    projectFitlogBeat1Body: 'Welcome flow built in SwiftUI with smooth transitions and a light form.',
+    projectFitlogBeat2: 'Your weekly goal, your journey',
+    projectFitlogBeat2Body: 'Interactive 1-to-7-day slider with dynamic motivational feedback.',
+    projectFitlogBeat3: 'The whole week at a glance',
+    projectFitlogBeat3Body: 'Dashboard with weekly streak, last workout and key metrics.',
+    projectFitlogBeat4: 'Every session, neatly organized',
+    projectFitlogBeat4Body: 'Filterable history with total volume and accumulated time.',
+    projectFitlogBeat5: 'Progress, drawn in Swift Charts',
+    projectFitlogBeat5Body: 'Personal records, average load and per-session weight chart.',
+    projectFitlogBeat6: 'A library that grows with you',
+    projectFitlogBeat6Body: 'Custom exercises grouped by muscle, equipment and type.',
+
+    // Projects — Per-project taglines + descriptions
+    projectTodoTagline: 'Simple tasks, lighter days',
     projectTodoDescription: 'A task management application that enables users to add, edit, and remove tasks, helping organize daily activities efficiently.',
+    projectIgniteshoesTagline: 'Mobile e-commerce with real-time push',
     projectIgniteshoesDescription: 'An e-commerce application focused on selling shoes, featuring product search, shopping cart, and checkout functionality.',
+    projectMotorlyTagline: 'Automotive catalog with a refined feel',
     projectMotorlyDescription: 'Motorly is an application that presents a catalog of automotive brands. The project prioritizes a clean interface and efficient navigation for quick vehicle discovery.',
+    projectFlowpayTagline: 'Fast, secure and elegant payments',
     projectFlowpayDescription: 'FlowPay is a payment management solution that facilitates secure and fast transaction organization for mobile applications. Includes payment provider integration, optimized checkout flow, and focus on user experience and security.',
+    projectRemindTagline: 'Never miss a dose again',
     projectRemindDescription: 'Medicine reminder application: medication registration, schedules, recurrences, and animated toasts. Built with React Native + TypeScript, featuring Reanimated + Lottie animations and persistence via Zustand + AsyncStorage.',
 
     // Contact

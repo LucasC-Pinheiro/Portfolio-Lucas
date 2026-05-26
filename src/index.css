@@ -69,3 +69,12 @@ button, a {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Hide scrollbar utility (project tabs row) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

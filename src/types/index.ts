@@ -1,17 +1,34 @@
+import type { TranslationKey } from '../data/i18n';
+
 export interface Skill {
   name: string;
   icon: string;
   category: 'Frontend' | 'Mobile' | 'Backend' | 'Data & State' | 'Tools';
 }
 
+export type ProjectCategory = 'ios-native' | 'react-native' | 'web';
+
+export type ImageOrientation = 'portrait' | 'landscape' | 'square';
+
+export interface ProjectImage {
+  src: string;
+  orientation: ImageOrientation;
+  captionKey?: TranslationKey;
+}
+
 export interface Project {
   id: string;
   title: string;
-  description: string;
-  thumbnail: string;
-  gallery: string[];
-  githubUrl: string;
+  year: number;
+  featured: boolean;
+  category: ProjectCategory;
   technologies: string[];
+  taglineKey: TranslationKey;
+  descriptionKey: TranslationKey;
+  gallery: ProjectImage[];
+  githubUrl?: string;
+  liveUrl?: string;
+  accentColor: string;
 }
 
 export interface SocialLink {
